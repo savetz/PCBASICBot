@@ -1,0 +1,17 @@
+#This goes in /etc/systemd/system/PCBASICBot.service to make the bot run at boot
+
+[Unit]
+Description=PC BASIC Bot
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u pcbasicbot.py
+WorkingDirectory=/home/atari8/pcbasicbot/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=30
+User=atari8
+
+[Install]
+WantedBy=multi-user.target
